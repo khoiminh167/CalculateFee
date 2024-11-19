@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load i18n static %}
+
+{% block content %}
+<div class="form-wrapper" style="max-width: 800px; margin: auto;">
+
+  
+
+    <section class="content">
+        <h2>{% translate 'Thêm món' %}</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="text-end">
+                <button class="btn btn-primary" type="submit">{% translate "Xác nhận" %}</button>
+            </div>
+        </form>
+    </section>
+</div>
+{% endblock content %}
+
+<style>
+    .form-wrapper {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+</style>
